@@ -1,3 +1,5 @@
+import headshot from "./assets/Araddhya_20112307.jpg";
+import resumeFile from "./assets/Resume-Araddhya-Rajput.docx";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, FileText, Briefcase, Code2, GraduationCap, ExternalLink, BarChart3, Cpu, PieChart, Building2, CheckCircle2 } from "lucide-react";
