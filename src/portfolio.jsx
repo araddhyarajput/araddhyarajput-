@@ -8,8 +8,9 @@ import {
   Building2, CheckCircle2
 } from "lucide-react";
 
-// Résumé served from /public/assets so it works on GitHub Pages
-const resumeUrl = new URL("assets/Resume-Araddhya-Rajput.docx", import.meta.env.BASE_URL).href;
+// Résumé served from /public/assets so it works on GitHub Pages;
+const resumeUrl = new URL("/araddhyarajput-/assets/Resume-Araddhya-Rajput.docx", import.meta.url).href;
+
 
 export default function Portfolio() {
   const [active, setActive] = useState("home");
