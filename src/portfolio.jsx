@@ -1,8 +1,14 @@
 import headshot from "./assets/Araddhya_20112307.jpg";
-import resumeFile from "./assets/Resume-Araddhya-Rajput.docx";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, FileText, Briefcase, Code2, GraduationCap, ExternalLink, BarChart3, Cpu, PieChart, Building2, CheckCircle2 } from "lucide-react";
+import {
+  Mail, Phone, MapPin, Linkedin, FileText, Briefcase, Code2,
+  GraduationCap, ExternalLink, BarChart3, Cpu, PieChart,
+  Building2, CheckCircle2
+} from "lucide-react";
+
+// Résumé served from /public/assets so it works on GitHub Pages
+const resumeUrl = new URL("assets/Resume-Araddhya-Rajput.docx", import.meta.env.BASE_URL).href;
 
 export default function Portfolio() {
   const [active, setActive] = useState("home");
@@ -35,7 +41,7 @@ export default function Portfolio() {
       "Advent Geneva (familiar)",
     ],
     "Client & Management": [
-      "Cross‑functional Collaboration",
+      "Cross-functional Collaboration",
       "Executive Reporting",
       "Strategic Planning",
       "Stakeholder Management",
@@ -65,7 +71,7 @@ export default function Portfolio() {
         "Led due diligence & valuation for a potential $5M acquisition; maintained 95% data accuracy.",
         "Program-managed a financial system rollout, boosting production efficiency by ~40% (300+ staff).",
         "Built DCF/WACC models to support strategic planning & capital allocation.",
-        "Created risk‑adjusted return models; supported FP&A decisioning.",
+        "Created risk-adjusted return models; supported FP&A decisioning.",
         "Presented market & credit analytics using Bloomberg data.",
       ],
     },
@@ -86,21 +92,21 @@ export default function Portfolio() {
       title: "FP&A Forecasting Suite",
       tag: "Excel • Python • Power BI",
       blurb:
-        "A driver-based P&L/BS/CF model with scenario toggles and variance bridge visuals; improved forecast accuracy and sped up month-end reviews.",
+        "Driver-based P&L/BS/CF model with scenario toggles and variance bridge visuals; improved forecast accuracy and sped up month-end reviews.",
       link: "#",
     },
     {
       title: "M&A Valuation Case: $5M Target",
       tag: "DCF • WACC • Comps",
       blurb:
-        "Built integrated valuation with sensitivity tables and deal model; assessed synergy ranges and downside protection.",
+        "Integrated valuation with sensitivity tables and deal model; assessed synergy ranges and downside protection.",
       link: "#",
     },
     {
       title: "Operations KPI Command Center",
       tag: "Tableau • Power BI",
       blurb:
-        "Unified AP/AR, spend, and productivity metrics; implemented alerts to reduce payment delays and highlight bottlenecks.",
+        "Unified AP/AR, spend, and productivity metrics; alerts to reduce payment delays and highlight bottlenecks.",
       link: "#",
     },
   ];
@@ -131,6 +137,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+      {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-slate-200">
         <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-14">
           <a href="#home" className="font-bold">Araddhya Rajput</a>
@@ -140,7 +147,7 @@ export default function Portfolio() {
                 <a
                   href={`#${n.id}`}
                   onClick={() => setActive(n.id)}
-                  className={`hover:opacity-100 opacity-80 ${active===n.id?"font-semibold":""}`}
+                  className={`hover:opacity-100 opacity-80 ${active===n.id ? "font-semibold" : ""}`}
                 >
                   {n.label}
                 </a>
@@ -156,24 +163,27 @@ export default function Portfolio() {
         </nav>
       </header>
 
+      {/* HERO */}
       <section id="home" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="uppercase tracking-wide text-xs font-semibold opacity-70">Finance • Analytics • Strategy</p>
-            <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight mt-2">Result‑Driven Analyst focused on FP&A, Valuation, and Data‑Driven Decisions</h1>
+            <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight mt-2">
+              Result-Driven Analyst focused on FP&A, Valuation, and Data-Driven Decisions
+            </h1>
             <p className="mt-4 text-slate-700">
               Master's in Financial Management (Investment Analysis) from Boston University.
               I build robust financial models, automate reporting, and turn data into insights that leaders can use.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#projects" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition">
-                <BarChart3 className="h-4 w-4"/> View Projects
+                <BarChart3 className="h-4 w-4" /> View Projects
               </a>
-              <a href="https://www.linkedin.com/in/araddhya-rajput" target="_blank" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition">
-                <Linkedin className="h-4 w-4"/> LinkedIn
+              <a href="https://www.linkedin.com/in/araddhya-rajput" target="_blank" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition" rel="noreferrer">
+                <Linkedin className="h-4 w-4" /> LinkedIn
               </a>
-              <a href="/assets/Resume-Araddhya-Rajput.docx" download className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition">
-                <FileText className="h-4 w-4"/> Download Résumé
+              <a href={resumeUrl} download className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition">
+                <FileText className="h-4 w-4" /> Download Résumé
               </a>
             </div>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
@@ -182,11 +192,12 @@ export default function Portfolio() {
               <Item icon={Building2} title="Ops & Strategy">AP optimization • KPI systems</Item>
             </div>
           </motion.div>
+
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="md:justify-self-end">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-slate-200 to-slate-100 blur"/>
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-slate-200 to-slate-100 blur" />
               <img
-                src="/assets/Araddhya_20112307.jpg"
+                src={headshot}
                 alt="Araddhya Rajput portrait"
                 className="relative rounded-3xl shadow-2xl w-full object-cover"
               />
@@ -201,10 +212,10 @@ export default function Portfolio() {
             I'm an analyst who blends <strong>finance</strong> and <strong>data</strong>. My work spans FP&A, valuation, and operational analytics—always with an eye for data integrity and scalable processes. I enjoy turning messy datasets into clean dashboards and actionable narratives for leadership.
           </div>
           <div className="rounded-2xl border p-4">
-            <h3 className="font-semibold mb-2 flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/> Highlights</h3>
+            <h3 className="font-semibold mb-2 flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Highlights</h3>
             <ul className="text-sm list-disc ml-5 space-y-1">
               <li>Reduced AP processing time ~30% via automation</li>
-              <li>Improved KPI reporting and decision‑making at BU</li>
+              <li>Improved KPI reporting and decision-making at BU</li>
               <li>Led $5M acquisition valuation and diligence</li>
             </ul>
           </div>
@@ -215,7 +226,7 @@ export default function Portfolio() {
         <div className="grid md:grid-cols-3 gap-6">
           {Object.entries(skills).map(([cat, items]) => (
             <div key={cat} className="rounded-2xl border p-5 shadow-sm">
-              <h3 className="font-semibold mb-3 flex items-center gap-2"><Code2 className="h-4 w-4"/>{cat}</h3>
+              <h3 className="font-semibold mb-3 flex items-center gap-2"><Code2 className="h-4 w-4" />{cat}</h3>
               <ul className="text-sm space-y-1">
                 {items.map((s) => <li key={s} className="opacity-90">• {s}</li>)}
               </ul>
@@ -230,7 +241,7 @@ export default function Portfolio() {
             <div key={e.role} className="rounded-2xl border p-5 shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="text-lg font-semibold flex items-center gap-2"><Briefcase className="h-5 w-5"/>{e.role}</h3>
+                  <h3 className="text-lg font-semibold flex items-center gap-2"><Briefcase className="h-5 w-5" />{e.role}</h3>
                   <p className="text-sm opacity-80">{e.company} · {e.time}</p>
                 </div>
               </div>
@@ -250,7 +261,7 @@ export default function Portfolio() {
               <p className="text-xs uppercase tracking-wide opacity-70 mt-1">{p.tag}</p>
               <p className="text-sm mt-3 flex-1">{p.blurb}</p>
               <a href={p.link} className="mt-4 inline-flex items-center gap-2 text-sm underline">
-                View details <ExternalLink className="h-4 w-4"/>
+                View details <ExternalLink className="h-4 w-4" />
               </a>
             </div>
           ))}
@@ -260,7 +271,7 @@ export default function Portfolio() {
       <Section id="education" title="Education">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border p-5 shadow-sm">
-            <h3 className="font-semibold flex items-center gap-2"><GraduationCap className="h-5 w-5"/> Boston University — Metropolitan College</h3>
+            <h3 className="font-semibold flex items-center gap-2"><GraduationCap className="h-5 w-5" /> Boston University — Metropolitan College</h3>
             <p className="text-sm opacity-80">MS, Financial Management — Investment Analysis • Jan 2024 – May 2025</p>
             <ul className="mt-2 text-sm space-y-1 list-disc ml-5">
               <li>Graduate Teaching Assistant — Financial Regulation & Ethics</li>
@@ -268,7 +279,7 @@ export default function Portfolio() {
             </ul>
           </div>
           <div className="rounded-2xl border p-5 shadow-sm">
-            <h3 className="font-semibold flex items-center gap-2"><GraduationCap className="h-5 w-5"/> Christ University</h3>
+            <h3 className="font-semibold flex items-center gap-2"><GraduationCap className="h-5 w-5" /> Christ University</h3>
             <p className="text-sm opacity-80">BSc, Economics & Data Analytics • Jun 2020 – Jun 2023</p>
             <ul className="mt-2 text-sm space-y-1 list-disc ml-5">
               <li>VP — Economics Club; Winner, 2022 Financial Frontiers Summit</li>
@@ -282,10 +293,12 @@ export default function Portfolio() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border p-5 shadow-sm">
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-2"><Mail className="h-4 w-4"/> araddhyarajput28@gmail.com</div>
-              <div className="flex items-center gap-2"><Phone className="h-4 w-4"/> 240‑756‑6936</div>
-              <div className="flex items-center gap-2"><MapPin className="h-4 w-4"/> Boston, MA</div>
-              <a className="flex items-center gap-2 underline" href="https://www.linkedin.com/in/araddhya-rajput" target="_blank"><Linkedin className="h-4 w-4"/> linkedin.com/in/araddhya-rajput</a>
+              <div className="flex items-center gap-2"><Mail className="h-4 w-4" /> araddhyarajput28@gmail.com</div>
+              <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> 240-756-6936</div>
+              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Boston, MA</div>
+              <a className="flex items-center gap-2 underline" href="https://www.linkedin.com/in/araddhya-rajput" target="_blank" rel="noreferrer">
+                <Linkedin className="h-4 w-4" /> linkedin.com/in/araddhya-rajput
+              </a>
             </div>
             <div className="mt-5 text-sm opacity-80">
               *International student open to sponsorship. Available for FP&A, Strategy, and Investment Analyst roles.*
@@ -297,18 +310,18 @@ export default function Portfolio() {
           >
             <div className="grid gap-1">
               <label className="text-sm">Name</label>
-              <input required className="border rounded-xl px-3 py-2" placeholder="Your name"/>
+              <input required className="border rounded-xl px-3 py-2" placeholder="Your name" />
             </div>
             <div className="grid gap-1">
               <label className="text-sm">Email</label>
-              <input required type="email" className="border rounded-xl px-3 py-2" placeholder="name@email.com"/>
+              <input required type="email" className="border rounded-xl px-3 py-2" placeholder="name@email.com" />
             </div>
             <div className="grid gap-1">
               <label className="text-sm">Message</label>
-              <textarea required className="border rounded-xl px-3 py-2 min-h-[110px]" placeholder="How can I help?"/>
+              <textarea required className="border rounded-xl px-3 py-2 min-h-[110px]" placeholder="How can I help?" />
             </div>
             <button type="submit" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border shadow hover:shadow-md transition w-max">
-              <SendIcon className="h-4 w-4"/> Send Message
+              <SendIcon className="h-4 w-4" /> Send Message
             </button>
           </form>
         </div>
