@@ -1,3 +1,4 @@
+
 import headshot from "./assets/Araddhya_20112307.jpg";
 import { useState } from "react";
 import { motion } from "framer-motion";
